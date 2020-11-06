@@ -6,6 +6,8 @@ LABEL "com.github.actions.description"="Lint PRs to ensure they contain a ticket
 LABEL "com.github.actions.icon"="book-open"
 LABEL "com.github.actions.color"="blue"
 
+WORKDIR ./pr-linter/
+
 # Copy the package.json and package-lock.json
 COPY package*.json ./
 
@@ -13,7 +15,7 @@ COPY package*.json ./
 RUN npm ci
 
 # Copy the rest of your action's code
-COPY . .
+COPY . ./
 
 # Run `node /index.js`
-ENTRYPOINT ["node", "/index.js"]
+ENTRYPOINT ["node", "./index.js"]
