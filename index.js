@@ -51,7 +51,7 @@ Toolkit.run(
         }
 
         if (isTitleValid === false) {
-            tools.log('PR title ' + title + ' does not contain approved project')
+            tools.log('PR title ' + title + ' does not contain approved project with format [PROJECT-1234]')
             return false
         }
       }
@@ -62,7 +62,7 @@ Toolkit.run(
       // check the branch matches PROJECT-1234 or PROJECT_1234 somewhere
       if (config.check_branch) {
         if (!projects.some(project => head_branch.match(createProjectRegex(project)))) {
-          tools.log('PR branch ' + head_branch + ' does not contain an approved project')
+          tools.log('PR branch ' + head_branch + ' does not contain an approved project with format PROJECT-1234 or PROJECT_1234')
           return false
         }
       }
